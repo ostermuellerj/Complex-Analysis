@@ -88,4 +88,6 @@ void draw() {
   }
   updatePixels();
   println(frameRate);
+
+  save(ca + ".tif");
 }
