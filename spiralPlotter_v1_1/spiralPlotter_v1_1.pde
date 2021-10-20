@@ -1,12 +1,7 @@
-// "Spiral Plotter"
-// John Ostermueller
-//
-// Created 3-2-17
-// V1.1: 3-6-17
-//
-// Complex Analysis
+//"Spiral Plotter" by John Ostermueller
+//3.2.17
 
-float e=2.718281828459045235360287471352662497757247093699959574966967627724076630353;
+float e=2.718;
 float zoom=1;
 float lineDensity=.5;
 float zoomSpeed=1;
@@ -22,8 +17,6 @@ int axisDummy = 1;
 PFont f1;
 PFont f2;
 
-
-//setup method`
 void setup ()
 {
   size(1400, 900);
@@ -32,7 +25,6 @@ void setup ()
   f2 = createFont("Arial Bold", 12, true);
 }
 
-//main method
 void draw ()
 {
   zoom*=(1.01*zoomSpeed);
@@ -56,23 +48,32 @@ void draw ()
   {
     fill(0);
     stroke(0);
-    ellipse((width/2)+getU(i, i), (height/2)+getV(i, i), 2, 2); //generates point at u/v given an x/y
+    
+    //generates point at u/v given an x/y
+    ellipse((width/2)+getU(i, i), (height/2)+getV(i, i), 2, 2); 
+    
+    //draws line between each point
     strokeWeight(0);
-    line((width/2)+getU(i, i), (height/2)+getV(i, i), (width/2)+getU(i+lineDensity, i+lineDensity), (height/2)+getV(i+lineDensity, i+lineDensity)); //line between each point
+    line((width/2)+getU(i, i), (height/2)+getV(i, i), (width/2)+getU(i+lineDensity, i+lineDensity), (height/2)+getV(i+lineDensity, i+lineDensity));
   }
 
   if (mousePressed == true)
-    if (mouseButton == LEFT) //left click zooms in, right clikc zooms out
+    //left click zooms in, right click zooms out
+    if (mouseButton == LEFT) 
     {
-      zoom*=(1.01*zoomSpeed); //generating HIGHER u/v values zooms OUT
+      //generating HIGHER u/v values zooms OUT
+      zoom*=(1.01*zoomSpeed); 
       //colorGradient*=1.01;
-    } else if (mouseButton == RIGHT) 
+    } 
+    else if (mouseButton == RIGHT) 
     {
-      zoom*=(0.99*(1/zoomSpeed)); //generating LOWER u/v values zooms IN
+      //generating LOWER u/v values zooms IN
+      zoom*=(0.99*(1/zoomSpeed)); 
       //colorGradient*=.01;
     }
 
-  if (keyPressed) //change density of line using x and c keys
+  //change density of line using x and c keys
+  if (keyPressed) 
     if (key == 'x' || key == 'X') 
     {
       lineDensity*=1.05;
@@ -120,8 +121,6 @@ void draw ()
   }
 }
 
-
-//methods
 float getU (float x, float y)
 {
   return (pow(e, x)*(cos(y)))*zoom;
