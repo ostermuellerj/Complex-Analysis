@@ -8,7 +8,7 @@ void setup() {
 }
 void draw() {
 
-  float ca = cos(angle*3.213);//sin(angle);
+  float ca = cos(angle*3.213);
   float cb = sin(angle);
 
   angle += 0.005;
@@ -42,7 +42,7 @@ void draw() {
         float aa = a * a;
         float bb = b * b;
         if (aa + bb > 4.0) {
-          break;  // Bail
+          break;
         }
         float twoab = 2.0 * a * b;
         a = aa - bb + ca;
