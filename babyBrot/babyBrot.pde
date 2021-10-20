@@ -5,7 +5,6 @@ int h = 2;
 double wh = h*w;
 int maxIterations = 300;
 
-//extra
 double downX, downY, startX, startY, startWH;
 boolean shift=false;
 float zoomSpeed = 1.01;
@@ -14,18 +13,17 @@ float zoomSpeed = 1.01;
 void setup () 
 {
   size(600,600);
-  colorMode(HSB, 255); //hue/sat/bright
+  colorMode(HSB, 255);
   loadPixels();
 }
 
 void draw ()
 {
-  
   double xmax = xmin + wh;
   double ymax = ymin + wh;
   
-  double dx = (xmax-xmin)/ width;
-  double dy = (ymax-ymin)/ height;
+  double dx = (xmax-xmin)/width;
+  double dy = (ymax-ymin)/height;
      
   double y = ymin;
   for (int j = 0; j < height; j++) 
@@ -45,10 +43,7 @@ void draw ()
         if (aa + bb > 4.0) break;
         n++;
       }
-      
-      //Color
-      //pixels[i+j*width] = (n==maxIterations) ? color(0) : color(n*16 % 255, 255, 255);
-      
+            
       if (n == maxIterations) 
       {
         pixels[i+j*width] = color(0);
@@ -63,11 +58,9 @@ void draw ()
     }
     y += dy;
   }
-  //println(ymax + " " + ymin);
   updatePixels();
 }
 
-//extra
 void mousePressed() 
 {
   downX=mouseX;
