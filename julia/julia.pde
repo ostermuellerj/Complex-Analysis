@@ -2,11 +2,13 @@
 
 float angle = 0;
 
-void setup() {
+void setup() 
+{
   size(640, 360);
   colorMode(HSB, 1);
 }
-void draw() {
+void draw() 
+{
 
   float ca = cos(angle*3.213);
   float cb = sin(angle);
@@ -31,17 +33,21 @@ void draw() {
   float dy = (ymax - ymin) / (height);
 
   float y = ymin;
-  for (int j = 0; j < height; j++) {
+  for (int j = 0; j < height; j++) 
+  {
     float x = xmin;
-    for (int i = 0; i < width; i++) {
+    for (int i = 0; i < width; i++) 
+    {
 
       float a = x;
       float b = y;
       int n = 0;
-      while (n < maxiterations) {
+      while (n < maxiterations) 
+      {
         float aa = a * a;
         float bb = b * b;
-        if (aa + bb > 4.0) {
+        if (aa + bb > 4.0) 
+        {
           break;
         }
         float twoab = 2.0 * a * b;
@@ -50,9 +56,11 @@ void draw() {
         n++;
       }
 
-      if (n == maxiterations) {
+      if (n == maxiterations) 
+      {
         pixels[i+j*width] = color(0);
-      } else {
+      } else 
+      {
         float hu = sqrt(float(n) / maxiterations);
         pixels[i+j*width] = color(hu, 255, 150);
       }
