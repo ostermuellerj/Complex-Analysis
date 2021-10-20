@@ -1,6 +1,4 @@
-// Interactive Mandelbrot Set
-// Inspired by Daniel Shiffman's Processing example.
-// by Rick Companje - www.companje.nl - 6 december 2009
+// Adapted from Rick Companje, orignally from Daniel Shiffman
 
 double xmin = -2.5;
 double ymin = -2;
@@ -9,13 +7,15 @@ double downX, downY, startX, startY, startWH;
 int maxiterations = 25;
 boolean shift=false;
 
-void setup() {
+void setup() 
+{
   size(600, 600);
   colorMode(HSB, 255);
   loadPixels();
 }
 
-void mousePressed() {
+void mousePressed() 
+{
   downX=mouseX;
   downY=mouseY;
   startX=xmin;
@@ -23,23 +23,28 @@ void mousePressed() {
   startWH=wh;
 }
 
-void keyPressed() {
+void keyPressed() 
+{
   if (keyCode==SHIFT) shift=true;
 }
 
-void keyReleased() {
+void keyReleased() 
+{
   if (keyCode==SHIFT) shift=false;
 }
 
-void mouseDragged() {
+void mouseDragged() 
+{
   double deltaX=(mouseX-downX)/width;
   double deltaY=(mouseY-downY)/height;
 
-  if (!shift) {
+  if (!shift) 
+  {
     xmin = startX-deltaX*wh;
     ymin = startY-deltaY*wh;
   } 
-  else {
+  else 
+  {
     if (wh>10) wh=10;
     if (deltaX>1) deltaX=1;
     wh = startWH-deltaX*wh;
@@ -48,22 +53,25 @@ void mouseDragged() {
   }
 }
 
-void draw() {
+void draw() 
+{
   double xmax = xmin + wh;
   double ymax = ymin + wh;
 
-  // Calculate amount we increment x,y for each pixel
   double dx = (xmax-xmin) / width;
   double dy = (ymax-ymin) / height;
 
   double y = ymin;
-  for (int j = 0; j < height; j++) {
+  for (int j = 0; j < height; j++) 
+  {
     double x = xmin;
-    for (int i = 0; i < width; i++) {
+    for (int i = 0; i < width; i++) 
+    {
       double a = x;
       double b = y;
       int n = 0;
-      while (n < maxiterations) { 
+      while (n < maxiterations) 
+      { 
         double aa = a * a; 
         double bb = b * b; 
         b = 2.0 * a * b + y; 
