@@ -1,5 +1,5 @@
-# Complex Analysis
-Spring 2017 Compex Analysis class.
+# Complex Analysis Spring 2017
+The following code examples were used in a presentation on the golden ratio and the mandelbrot set. NOTE: in order to run the examples with Processing, each .pde must be located in a parent folder with the same name (as is done in this repo), e.g. "julia/julia.pde". 
 
 - "**spiralPlotter_v1_1**": A small app demonstrating the scaling effects of the golden ratio and [its difficulty to approximate](https://en.wikipedia.org/wiki/Golden_ratio#Other_properties).
 ![](images/spiral_plotter.png)
